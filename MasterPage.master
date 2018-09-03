@@ -1,0 +1,523 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<%--<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>--%>
+
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxtoolkit" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<noscript>
+    <meta http-equiv="refresh" content="0; URL=Smt_Login.aspx?x=1"">
+</noscript>
+    <title>Untitled Page</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <%--  <script src="jquery/Smt_alljs.js" type="text/javascript"></script>
+    <link href="css/stylemnu.css" rel="stylesheet" type="text/css" />--%>
+    <link rel="shortcut icon" href="gridimage/favicon.ico" />   
+    <link href="css/total.css" rel="stylesheet" type="text/css" />
+    <script src="jquery/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="jquery/Smt_jscript.js" type="text/javascript"></script>   
+ <script type="text/javascript">
+     function popupproduct() {
+         var newwin = window.open('Help_Menual/Smt_Mer_BOM.aspx', 'popup','location=1,status=1,left=0,top=0,scrollbars=1,width=550,height=600');
+         newwin.focus();
+         return false;
+     }
+ </script>    
+     <script type="text/javascript">
+         function ExpandCollapse() {
+             var collPanel = $find("cpe");
+             if (collPanel.get_Collapsed())
+                 collPanel.set_Collapsed(false);
+             else
+               collPanel.set_Collapsed(true);
+         }      
+ 
+    </script>
+     <script type="text/javascript">
+         function clr() {
+             document.getElementById('lbltotalinfo').innerText = '';
+         }
+         function disableEnterKey(e) {
+             var key;
+             if (window.event)
+                 key = window.event.keyCode; //IE
+             else
+                 key = e.which; //firefox
+                 return (key != 13);
+         }      
+        $(document).ready(function() {
+            $(document).keyup(function(event) {
+                var key = event.keyCode || event.charCode || 0;
+                if (key == 113) { // Page One Press 1
+                    //eval($("[id$='lbHelp']").trigger("click"));
+                    $(".panel").toggle("fast");
+                    $(this).toggleClass("active");
+                    return false;
+                } 
+            });
+        });
+
+        //Arrow Nevigation
+
+        $(function () {
+            $('input:text:first').focus();
+            var $inp = $('input:text');
+            $inp.bind('keydown', function (e) {
+                var key = e.which;
+                if (key == 37) {
+                    e.preventDefault();
+                    var nxtIdx = $inp.index(this) - 1;
+                    $(":input:text:eq(" + nxtIdx + ")").focus();
+                }
+                if (key == 39) {
+                    e.preventDefault();
+                    var nxtIdx = $inp.index(this) + 1;
+                    $(":input:text:eq(" + nxtIdx + ")").focus();
+                }
+            });
+        });
+
+</script>
+<script type="text/javascript">
+    function DisableBack() {
+        window.history.forward();
+    }
+    DisableBack();
+    window.onload = DisableBack;
+    window.onpageshow = function (evt) {
+        if (evt.persisted) DisableBack();
+    }
+    window.onunload = function () { void (0); }
+//    alert("asdjf");
+        
+    </script>
+<style type="text/css">
+
+.modalBackground
+        {
+            background-color:silver;
+            border:2px solid gray;
+            filter:alpha(opacity=60);
+            opacity:0.60;
+        }
+        .LAV
+{
+     background-image:url(gridimage/lv.png);
+     width:28px;
+     height:28px;
+    }
+    .style4
+    {}
+    .panelListuser {
+position: fixed;
+bottom: 30px;
+text-align:left;
+right: 3px;
+display: none;
+border:1px solid #99ccff; 
+background-color:#F9F9F9;
+-moz-border-radius-topright: 20px;
+-webkit-border-top-right-radius: 20px;
+-moz-border-radius-bottomright: 20px;
+-webkit-border-bottom-right-radius: 20px;
+-moz-border-radius-topleft: 20px;
+-webkit-border-top-left-radius: 20px;
+-moz-border-radius-bottomleft: 20px;
+-webkit-border-bottom-left-radius: 20px;
+box-shadow: 1px 1px 4px 2px #888888;
+width:200px;
+height: auto;
+padding: 5px 5px 5px 5px;
+filter: alpha(opacity=90);
+opacity: .90;
+}
+.ermsgcls
+{
+    background-color:Red;
+    border:3px solid teal;
+    padding:10px;
+    color:White;
+    
+    }
+    .ermsgcls1
+{   
+    border:3px solid gray;   
+    color:Maroon;
+    
+    } 
+    
+</style>
+
+<script type="text/javascript">
+
+    function blinkColor() {
+       document.getElementById('lbltotalinfo').style.background = "";
+        document.getElementById('lbltotalinfo').style.color = "transparent";
+       // $('#lbltotalinfo').addClass('ermsgcls1');
+        setTimeout("setblinkColor()", 500)
+    }
+    function setblinkColor() {      
+        var ln = document.getElementById('lbltotalinfo').innerText;
+        if (ln.length > 0) {
+            document.getElementById('lbltotalinfo').style.background = "#0099FF";
+            document.getElementById('lbltotalinfo').style.color = "white"
+            document.getElementById('lbltotalinfo').style.padding = "10px"
+           // $('#lbltotalinfo').addClass('ermsgcls');
+        }      
+        setTimeout("blinkColor()", 1000)
+    }
+    function clearlabel() {
+        document.getElementById('lbltotalinfo').innerText = '';
+    }
+    
+</script>
+ <script type="text/javascript">
+     $(document).ready(function () {
+         $(".tmn").click(function () {
+             $(".panel").toggle("fast");
+             $(this).toggleClass("active");
+             return false;
+         });
+//         var x = $(window).width();
+//         if (x > 1350) {
+//             $(".panel").toggle("fast");
+//             $(this).toggleClass("active");
+//             return false;
+         //         }
+
+
+         $("#imeml").click(function () {
+             $("#iffeml").attr("src", "Master_Setup/UserMail.aspx");
+             $("#pnEml").toggle("fast");
+             $(this).toggleClass("active");
+             return false;
+         });
+     });
+     //window.onbeforeunload = confirmExit;
+     function confirmExit() {
+         return "You have attempted to leave this page.  If you have made any changes to the fields without clicking the Save button, your changes will be lost. Are you sure you want to exit this page?";
+     }
+//     function checkClose() {
+//         if (self.closed == true) {
+//             alert("Sure?");
+//         }
+//         setTimeOut("checkClose()", 1000)
+//     }
+     
+</script>
+<%--<script type="text/javascript">
+    $(document).ready(function () {
+        var accordion_head = $('.accordion > li > a'),
+				accordion_body = $('.accordion li > .sub-menu');
+        //accordion_head.first().addClass('active').next().slideDown('medium');
+        //accordion_head.first().addClass('active');
+        accordion_head.on('click', function (event) {
+            event.preventDefault();
+            if ($(this).attr('class') != 'active') {
+                accordion_body.slideUp('medium');
+                $(this).next().stop(true, true).slideToggle('medium');
+                accordion_head.removeClass('active');
+                $(this).addClass('active');
+            }
+        });
+    }); 
+	</script> --%>
+<%--<script type="text/javascript">
+    $(document).ready(function () {
+        $(".pnlUsr").click(function () {
+            $(".panelListuser").toggle("fast");
+            $(this).toggleClass("active");
+            return false;
+        });
+    });
+</script>--%>
+   
+</head>
+<body class="customerRow" onload="blinkColor()" onkeydown = "return (event.keyCode!=13)">
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" EnablePageMethods="true" runat="server" AsyncPostBackTimeout="400">
+    </asp:ScriptManager>
+    <div align="center" >      
+     <div class="headerContainer" >
+    <div class="header" align="center">
+        <table style="width: 100%;">
+            <tr>
+            <td style="text-align:left; width:35px">  
+            <div class="tmn" style="padding:3px; border:1px solid #96E9D3; cursor:pointer">Menu</div>     
+            </td>
+                <td align="right" valign="top" width="60">
+                  
+                <asp:Button ID="btnmnu" runat="server" style="display:none" />
+                    <asp:Image ID="Image1" runat="server" Height="35px" 
+                        ImageUrl="~/images/slms.png" Width="40px" /></td>
+                <td align="left" valign="top"  class="style4">
+                    &nbsp;
+                    <asp:Label ID="Label1" runat="server" Font-Size="15px" 
+                        Text="   SpecFo RMG System For " Font-Names="Microsoft Sans Serif" 
+                        Font-Italic="False"></asp:Label>
+                    <asp:Label ID="lblComName" runat="server" Font-Names="Microsoft Sans Serif" 
+                        Font-Size="15px"></asp:Label>
+                    &nbsp;
+                    </td>
+                <td align="right" valign="middle" width="100px">
+                    <asp:Label ID="Label4" runat="server" Text="User Name :"></asp:Label>
+                </td>
+                <td align="left" valign="middle" width="250">
+                
+                            <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                                <ContentTemplate>
+                                    <asp:LinkButton ID="lnkUsrName" runat="server" ForeColor="White" 
+                                        Font-Names="Calibri" Font-Size="12px">asdf</asp:LinkButton>
+                                      <ajaxtoolkit:HoverMenuExtender ID="HoverExforTopmenu" runat="server" 
+                    DynamicServicePath="" Enabled="True" PopupControlID="MnuTop" 
+                    TargetControlID="lnkUsrName" PopupPosition="Bottom">
+                </ajaxtoolkit:HoverMenuExtender>    
+                                                         
+                                                                                        
+                <br />
+               
+                    <div id="MnuTop">
+                    <div style="position:absolute; top:-15px; width:30px; height:30px"><img src="gridimage/btaro.png" /></div>
+                   <div class="menu">
+                   <ul>
+                   <li><a href="Smt_Mainhome.aspx">Home Page</a></li>
+                   <li><a href="Smt_ChangePassword.aspx">Change Password</a></li>
+                   <%--<li><a href="Smt_Setting.aspx">Setting</a></li>--%>
+                   <li><a onclick="javascript:return confirm('Do you want to Log Off')" href="Smt_Login.aspx?xlof=1">Log Off</a></li>
+                   </ul>
+                   </div>
+                   </div>                               
+                            </ContentTemplate>
+                            </asp:UpdatePanel>
+                       
+                </td>
+                <td align="left" valign="middle" width="40px" style="text-align:right">
+                <img id="imeml" title="Send Email to SLMS" alt="Send Email to SLMS" style="cursor:pointer; display:none" src="gridimage/email.png" />
+                <div id="pnEml" style="height:220px; z-index:999; width:260px; display:none; position:fixed; border:1px solid #59A9CA; background-color:#E9F3F8; right:20px; top:43px">
+                <div style="height:20px; width:240px; background-color:#6FA8DE; color:White; text-align:left; font-size:11px; font-family:Verdana; padding-left:20px; padding-top:4px; border-bottom:2px solid white">Mail To SLMS</div>
+                <iframe style="border:none" width="255px" height="200px" id="iffeml" src=""></iframe>
+                </div>
+                       
+                           </td>
+            </tr>
+        </table>
+    </div>
+    </div>
+    
+
+     
+
+        <%--  <div class="headerbelow"></div>--%>
+    <div align="center">
+    <div class="content">
+    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">        
+        </asp:ContentPlaceHolder>    
+    </div>
+    </div>
+        <asp:Panel ID="pnlFtr" runat="server" Height="30px" Width="100%" 
+             CssClass="footerContainer">
+              <table style="width: 100%;">
+                <tr>
+                    <td align="left" width="250px">
+                        <asp:LinkButton ID="LinkButton1" TabIndex="300" runat="server" Font-Underline="False" 
+                            ForeColor="Red">All right reserved&nbsp;  (©) SLMS-2012</asp:LinkButton>
+                        <ajaxtoolkit:ModalPopupExtender ID="LinkButton1_ModalPopupExtender" 
+                            runat="server" DynamicServicePath="" CancelControlID="btncnclabt" 
+                            PopupDragHandleControlID="hdr" PopupControlID="pnlAbout" Enabled="True" 
+                            TargetControlID="LinkButton1" Drag="True" ></ajaxtoolkit:ModalPopupExtender>
+                        </td>
+                    <td align="left" width="60px">
+                       <%--<img width="40px" height="30px" alt="Network" src="images/nt.png" />--%>
+                       </td>
+                    <td align="left" width="300px">               
+                     <asp:Label ID="Label3" runat="server" Font-Bold="True" ForeColor="#0083AE" 
+                            Text="Current Page :"></asp:Label>
+                        <asp:Label ID="lblCurrentpage" runat="server" Font-Bold="True" 
+                            Font-Names="Calibri" Font-Size="17px" ForeColor="#0083AE"></asp:Label>
+                         
+                    </td>
+                    <td align="left" width="200px">                     
+                    </td>
+                    <td align="left">                    
+                        <asp:LinkButton ID="lbHelp" runat="server"  OnClientClick="popupproduct();" style="display:none">Hepl</asp:LinkButton>
+                    
+                    </td>                     
+                       
+                     
+                    <td align="right">
+                        &nbsp;</td>
+                    <td align="right">
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                         <asp:Label ID="lbltotalinfo" runat="server" CssClass="rsult"></asp:Label>
+                        </ContentTemplate>
+                        </asp:UpdatePanel>
+                       
+                    </td>
+                    
+                </tr>
+               
+            </table>
+        </asp:Panel>
+        <ajaxtoolkit:AlwaysVisibleControlExtender ID="pnlFtr_AlwaysVisibleControlExtender" 
+            runat="server" Enabled="True" TargetControlID="pnlFtr" VerticalSide="Bottom">
+        </ajaxtoolkit:AlwaysVisibleControlExtender>
+         
+    </div>
+  
+    <asp:Panel ID="pnlAbout" CssClass="pnlmain" style="display:none" Width="500px" Height="300px" 
+        runat="server" BackColor="#DBDBDB">
+    <div id="hdr" class="pnlheader">
+   <div style="float: left">Spectrum Lanka Technologies Solution Ltd.</div>
+   <div style="float: right">
+        <asp:ImageButton ID="btncnclabt" runat="server" ImageUrl="~/images/cancel.png" />
+       </div>
+    </div>
+    <div>
+    <div style="margin-left:10px; width:160px; float:left; margin-top:20px; padding-top:10px"><u>Address</u>
+    <address style="font-weight:normal; font-family:Tahoma; font-size:10px; font-style:normal">
+    House # 74,<br />
+    Block # A,<br />
+    Bashundhara R/A,<br />
+    Dhaka-1229.<br />
+    PABX:88028814111,<br />
+    Fax:88028815859,<br />
+    Email:info@spectrumlanka.com,<br />
+   Web:<a href="http://www.spectrumlanka.com" target="_blank">www.spectrumlanka.com</a>
+    </address>
+    </div>
+      <div style=" width:250px; float:right; margin-top:20px; padding-top:10px">Services
+      <ul style="font-weight:normal; font-family:Tahoma; font-size:10px; font-style:normal">
+      <li>Industrial Design</li>
+      <li>Social Compilance Audit & Implementation</li>
+      <li>Technical Management Systems Audit & Implementation</li>
+      <li>Industrial Engineering</li>
+      <li>Develop & Implement Technical Software</li>
+      <li>Implementation of japanesse 5 'S'</li>
+      <li>Consulting for Efficient Factory Management</li>
+      <li>Corporate Training</li>
+      </ul>
+      </div>
+      </div>
+     
+     
+    </asp:Panel>
+   
+<div class="panel">
+<div style="height:100%;width:165px; overflow:auto" align="left">
+  <div id="wrapper-250">  
+		<ul class="accordion"> 			
+			<li id="L1" runat="server" class="files"><a id="A1" runat="server" href="#L1">Merchandising</a>
+				<ul class="sub-menu">               			
+					<li id="L2" runat="server" ><a id="A2" runat="server" href="Smt_Mer_Stylemaster.aspx">Style Master</a></li> 					
+					<li id="L3" runat="server" ><a id="A3" runat="server" href="Smt_Mer_BOMEstimate.aspx">Estimate BOM</a></li>  					
+					<li id="L5" runat="server" ><a id="A5" runat="server" href="Smt_Mer_EstimateCosting.aspx">Estimate Costing</a></li> 
+                    <li id="LNC" runat="server" ><a id="ANC" runat="server" href="NazCostsheet.aspx">Material Cost Sheet</a></li>      	
+                    <li id="LCSTAPPV" runat="server" ><a id="ACSTAPPV" runat="server" href="Smt_Mer_Costing_Apprv.aspx">Costing Approval</a></li>				
+					<li id="L6" runat="server" ><a id="A6" runat="server" href="Smt_Mer_AssortmentDetails.aspx">Assortment</a></li> 
+                    <li id="L7" runat="server" ><a id="A7" runat="server" href="Smt_Mer_BOM.aspx">BOM</a></li>
+                    <li id="L8" runat="server" ><a id="A8" runat="server" href="Smt_Mer_OtherBooking.aspx">Other Booking</a></li>
+                    <li id="L9" runat="server" ><a id="A9" runat="server" href="Smt_Mer_POApproval.aspx">PO Approval</a></li>
+                    <li id="L10" runat="server" ><a id="A10" runat="server" href="Commercial/Smt_Com_PerfomaInvoice.aspx">Proforma Invoice</a></li>           
+                    <li id="LOMS" runat="server" ><a id="AOMS" runat="server" href="Smt_StylemasterOMS.aspx">OMS</a></li>   
+                    <li id="L36" runat="server" ><a id="A36" runat="server" href="StyleStatus.aspx">Style Status</a></li>   
+                    <li id="LSTT" runat="server" ><a id="ASTT" runat="server" href="Smt_StyleTransfer.aspx">Style Transfer</a></li>  
+                    <li id="Li1" runat="server" ><a id="A4" runat="server" href="Smt_PORename.aspx">Rename PO</a></li>    
+                    <li id="L14" runat="server" ><a id="A14" runat="server" href="Smt_Mer_ReportAll.aspx">Merchandising Report</a></li> 
+                    <li id="LDV" runat="server" ><a id="ADV" runat="server" href="Smt_Datavisualization.aspx">Data Visualization</a></li>                                                   
+				</ul> 
+			</li>            
+            <li id="LIOTS" runat="server" class="mail" ><a id="AOTS" runat="server" href="#LIOTS">OTS</a>  
+				<ul class="sub-menu"> 					
+					<li id="L11" runat="server" ><a id="A11" runat="server" href="Smt_TNA.aspx">Define OTS</a></li>				
+					 <li id="L12" runat="server" ><a id="A12" runat="server" href="Smt_TNATask.aspx">Task Status</a></li>
+                   <li id="L13" runat="server" ><a id="A13" runat="server" href="Smt_TNAPending.aspx">OTS Report</a></li>                    
+				</ul>  
+			</li>             
+            		
+			
+			
+			<li id="L23" runat="server" class="cloud" ><a id="A23" runat="server" href="#L23">Inventory</a>  
+				<ul class="sub-menu"> 					
+					<li id="L24" runat="server" ><a id="A24" runat="server" href="Inventory/Smt_Inv_FactoryPurchase.aspx">Factory Purchase</a></li> 					
+					<li id="L25" runat="server" ><a id="A25" runat="server" href="Inventory/Smt_Inv_GRN.aspx">Goods Receive Note</a></li>  
+					<li id="L26" runat="server" ><a id="A26" runat="server" href="Inventory/Smt_Inv_GRNApprove.aspx">GRN Approval</a></li>  
+					<li id="L27" runat="server" ><a id="A27" runat="server" href="Inventory/Smt_Inv_GoodIssuing.aspx">Goods Issue</a></li> 					
+					<li id="L28" runat="server" ><a id="A28" runat="server" href="Inventory/Smt_Inv_ItemTraker.aspx">Item Tracker</a></li> 
+					<li id="L29" runat="server" ><a id="A29" runat="server" href="Inventory/Smt_Inv_Factoryreturn.aspx">Factory Return</a></li> 
+                    <li id="L34" runat="server" ><a id="A34" runat="server" href="Inventory/Smt_Inv_ReportAll.aspx">Inventory Report</a></li>   
+				</ul>  
+			</li> 
+
+            <li id="Li2" runat="server" class="production" ><a id="A37" runat="server" href="#Li2">Production</a>  
+				<ul class="sub-menu"> 					
+					<li id="LCutRPT" runat="server" ><a id="ACutRPT" runat="server" href="Production/Cutting_Report.aspx">Cutting Reports</a></li>	
+                    <li id="LSwnRpt" runat="server" ><a id="ASwnRpt" runat="server" href="Production/Sewing_Report.aspx">Sewing Reports</a></li>
+                     <li id="LFnisRpt" runat="server" ><a id="AFnisRpt" runat="server" href="Production/DailyFinalrpt.aspx">Finishing Reports</a></li>				
+  
+                    <li id="lexp" runat="server" ><a id="Aexp" runat="server" href="Production/Exports.aspx">Exports</a></li>					
+				</ul>  
+			</li> 
+
+			
+			<li id="L30" runat="server" class="sign" ><a id="A30" runat="server" href="#L30">Master Setup</a>  
+				<ul class="sub-menu"> 					
+					<li id="L31" runat="server" ><a id="A31" runat="server" href="Smt_TotalSetup.aspx">Master Setup</a></li> 					
+					<li id="L32" runat="server" ><a id="A32" runat="server" href="Smt_Dashboards.aspx">Dashboard</a></li>  
+					<li id="L33" runat="server" ><a id="A33" runat="server" href="cPanel.aspx">Admin Panel</a></li>
+                
+                      
+				</ul>  
+			</li> 		
+
+            <li id="LMRpt" runat="server" class="sign" ><a id="AMRpt" runat="server" href="#LMRpt">Master Reports</a>  
+				<ul class="sub-menu"> 					
+				<li id="Ldb" runat="server" ><a id="Adb" runat="server" href="Masterreport/Dashboard.aspx">Report 1</a></li> 
+                <li id="lmrpt2" runat="server" ><a id="amrpt2" runat="server" href="Masterreport/Dashboardnz.aspx">Report 2</a></li>			                   
+				</ul>  
+			</li> 		
+
+
+
+		</ul> 		
+	</div> 
+  
+</div>
+</div>
+
+<div class="panelListuser">
+<div style="height:400px; overflow:auto">  
+    </div>
+</div>
+
+<asp:Panel ID="pnlProgress" style="display:none;" runat="server">
+<div  class="ldhide">   
+  <img alt="" src="images/loader.gif" />         
+ </div>       
+</asp:Panel>
+ <ajaxtoolkit:ModalPopupExtender ID="mpeProgress" runat="server" TargetControlID="pnlProgress" PopupControlID="pnlProgress" BackgroundCssClass="modalBackground" />
+ <script type="text/javascript">
+      Sys.Net.WebRequestManager.add_invokingRequest(onInvoke);
+      Sys.Net.WebRequestManager.add_completedRequest(onComplete);
+      function onInvoke(sender, args) {
+          $find('<%= mpeProgress.ClientID %>').show();
+      }
+      function onComplete(sender, args) {
+          $find('<%= mpeProgress.ClientID %>').hide();
+      }
+      function pageUnload() {
+          Sys.Net.WebRequestManager.remove_invokingRequest(onInvoke);
+          Sys.Net.WebRequestManager.remove_completedRequest(onComplete);
+      }
+      function lodhide() {
+          $("#pnlProgress").hide();
+      }
+    </script>  
+    </form>
+         
+</body>
+</html>

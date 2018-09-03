@@ -1,0 +1,216 @@
+﻿.pnlmain      {margin-top:5px; border:solid 1px silver;	text-align:left;}
+.pnlheader    {	background: -moz-linear-gradient(top, silver, white);background : -webkit-gradient(linear, left top, left bottom, from(silver), to(white));
+                background-color:silver;height:18px;font-size:11px; font-family:Tahoma;padding-left:10px;padding-right:20px;color:Black;}		
+.calenderimg  {	 font-size:9px; width:13px;	background-color:gray;background:url(../images/calendar.gif);}
+.gridheader   {  background: -moz-linear-gradient(top, #59D07F, white);background : -webkit-gradient(linear, left top, left bottom, from(#59D07F), to(white));
+                background-color:#969696;color:#0000CE;height:17px;font-family:Sans-Serif;	font-size:11px;	}
+.gridrow { font-size:10px;	font-family:Tahoma;	}
+.gridrowAlternaterow
+	                {
+		            background-color:#F7F7F7;
+                    font-size:10px;		
+		            font-family:Tahoma;		
+		            }
+.LinkBtn
+		{
+		    color:Highlight;
+		    padding-left:5px;
+		    text-decoration:none;
+		    		    
+		    }
+.LinkBtn:hover
+		    {
+		         color:Green;
+		    text-decoration:underline;
+		        }
+.gridrow:hover{background: -moz-linear-gradient(top, #E0FFEA, white);background : -webkit-gradient(linear, left top, left bottom, from(#E0FFEA), to(white));
+                background-color:#E0FFEA;color:Black;font-size:10px;font-family:Tahoma;} 
+.label        {padding-right:5px;font-size:11px;font-family:Tahoma;}
+               
+               
+.textbox  {border:solid 1px silver; margin-left:5px;font-family:Tahoma;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;font-size:11px;}
+.textbox:focus{border:solid 1px silver;margin-left:5px;background: -moz-linear-gradient(top, #59D07F, white);background : -webkit-gradient(linear, left top, left bottom, from(#59D07F), to(white));
+                background-color:#59D07F;color:Black;}
+.textboxforgridview{font-size:10px;border:1px solid gray;font-family:Tahoma;}
+.textboxforgridviewNumeric {font-size:10px;border:1px solid gray;font-family:Tahoma; text-align:right; padding-right:3px;}
+.textboxNumeric
+                {
+                    
+                border:solid 1px silver;
+                margin-left:5px;               
+                font-family:Tahoma;
+                -webkit-border-radius: 2px;
+                -moz-border-radius: 2px;
+                border-radius: 2px;
+                font-size:11px;   
+              
+                text-align:right;       
+                
+                }
+                  
+.dropdownlist {
+     border:solid 1px silver;margin-left:5px;font-family:Tahoma;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;font-size:11px;}     
+  
+.button  {margin-left:5px;background: -moz-linear-gradient(top, #E0FFEA, #828282);background : -webkit-gradient(linear, left top, left bottom, from(#E0FFEA), to(#828282));
+                background-color:#E0FFEA;color:#0000CE;}
+.button:hover {margin-left:5px;background: -moz-linear-gradient(top, #59D07F, #828282);background  : -webkit-gradient(linear, left top, left bottom, from(#59D07F), to(#828282));
+                  background-color:#59D07F;}
+  
+                
+.rsult   { font-family:Tahoma; font-weight:bold;font-size:12px;text-decoration:blink;color:White; }
+                    
+                    /*Master page css*/                    
+.header      {width:1026px;
+              height:40px;
+             /* background: url(../Theme_Image/green1.png);*/             
+              margin-bottom:2px;
+              text-align:center;
+              color:White;font-weight:bold;font-style:italic;
+    	        vertical-align:middle;padding-top:8px;
+    	       }
+.headerContainer{background: url(../Theme_Image/gn.png); border-bottom:1px solid white;}   
+.headerfoot{ height:30px; width:100%;background: url(../Theme_Image/gn.png); border-bottom:1px solid white;
+                          margin-bottom:5px; }  
+                         
+                             	          	
+.content     { margin:0 auto;width:1024px;background-color:#F7FCF3;border:1px solid #128537;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
+.footer      { width:1024px;height:20px;font-size:11px;font-family:Tahoma;background: url(../Theme_Image/green1.png);-webkit-border-radius: 5px;-moz-border-radius: 5px;
+                border-radius: 5px;color:#0000CE;margin-top:3px;border:1px solid #808040;}   
+ .footerContainer
+    	{
+    	 background: url(../Theme_Image/gn.png);
+    	    }               
+                
+.hovermnu    {background: -moz-linear-gradient(top,#FAFDF8, #E6E6E6);background : -webkit-gradient(linear, left top, left bottom, from(#FAFDF8), to(#E6E6E6));
+                 background-color:#FAFDF8;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;color:white;border:1px solid #333333;}                 
+.customerRow {margin-top:0px;margin-left:0px;margin-right:0px;overflow:auto;background-color:#EFFBE4;} 
+                    /*----------Master Page----------*/                   
+   
+     .tab
+    {   
+    font-size:11px;
+    font-family:Tahoma;      
+    }
+  				
+   
+   /*User Menu*/
+   .css         {background-color:gray;border:2px solid white;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}    	
+   #myMenu      {margin-left: 40px;}        
+   .userdynamicmenuItemstyle {background-color:#1A9C77; border:1px outset white;font-size:9px;font-family:Tahoma;padding:5px 0px 5px 10px;width:120px;}
+   .userdynamicmenuhover {background-color:#0097DF; }
+   /*---------//User Menu---------*/
+   
+   
+   /* TreeViewMenu*/
+   .treeParentNodestyle  {color:Black;font-family:Tahoma;font-size:13px;}
+   .treeRootnodestyle {   color:Black;font-family:Tahoma;font-size:15px;}
+   .treeview             {color:Black;font-family:Tahoma;font-size:10px;}
+   /*------TreeviewMenu-------*/
+   
+                        
+  .controlresizehandle
+                {
+                width:10px;
+                height:10px;
+                background-color:Black;
+                }
+.controlresizing
+                {
+
+                border-style:solid;
+                border-width:1px;
+                border-color:Black;
+                cursor:se-resize;
+                }
+                
+                
+                
+        /* Master SetUP*/
+ .POPUPBTN {text-align:center;font-family:Verdana;font-size:9px;}                
+ .POPUPPanel   
+ {
+     position: fixed;bottom:30px;text-align:left;right:0px;display:none; background: -moz-linear-gradient(top, green, #E6E6E6);background : -webkit-gradient(linear, left top, left bottom, from(green), to(#E6E6E6));
+                background-color:green;border:1px solid white;-moz-border-radius-topleft: 20px;-webkit-border-top-left-radius: 20px;-moz-border-radius-bottomleft: 20px; 
+                -webkit-border-bottom-left-radius: 20px;
+                padding: 5px 5px 5px 5px;color:White;}
+  .PnlContend
+  {
+      max-height:550px;
+      max-width:900px;
+      overflow:auto;
+      
+      }              
+ .POPUPClose      {margin-right:20px;float:right;cursor:pointer; width:15px;height:15px;background-image:url(../gridimage/cancelgridrowedit1.png);}
+ .POPUPHeaderText {float:left; margin-left:20px;color:White;}
+  #POPUPHDR       {height:30px; }
+  #POPUPIFrame    {margin-left:10px;margin-right:10px;margin-bottom:10px; border:1px solid silver;background-color:#F7FCF3;}
+  /*-------------Master SetUp---------*/
+  
+  .btnLoad
+        {       
+         text-align:center;
+         font-family:Verdana;
+         font-size:9px;     
+         width:18px;
+         height:15px;
+         border:1px solid silver;
+         background-image:url(../images/LoadDta.png);             
+        } 
+        .btnLoad:hover
+        {
+            border:1px solid green;
+            
+            }       
+            
+            .menu        { 
+			
+			        display: block;	
+			     
+		            }
+
+.menu ul {
+			        list-style: none;
+			        padding: 0;
+			        margin: 0;
+		        }
+
+.menu ul li {
+			        float: left; 
+			        overflow: hidden;		
+			        position: relative;
+			        text-align: center;
+			        line-height: 20px;
+			        border-bottom:1px solid white;
+			
+			
+		        }
+
+.menu ul li a { 
+			        position: relative;
+			        display: block;
+			        width: 180px;
+			        height: 20px;
+			        font-family: Arial;
+			        font-size: 11px;
+			        font-weight: bold;
+			        letter-spacing: 1px;			
+			        text-decoration: none;
+			        cursor: pointer;
+			        padding-top:5px;
+			
+		        }
+.menu ul li a:hover{
+			        position: relative;
+			        display: block;
+			        width: 180px;
+			        height: 20px;
+			        font-family: Arial;
+			        font-size: 11px;
+			        font-weight: bold;
+			        letter-spacing: 1px;			
+			        text-decoration: none;
+			        cursor: pointer;
+			        color:White;
+			        background-color:Gray;
+			
+		        }
